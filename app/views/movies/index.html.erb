@@ -1,0 +1,22 @@
+<h1>Welcome</h1>
+<p>Welcome to RetFlix! See our collection of movies below</p>
+
+<%= form_tag '/movies', method: "GET" do %>
+  <%= label_tag :query, "Search:" %>
+  <%= text_field_tag :query, params[:query] %>
+  <%= submit_tag "Search" %>
+<% end %>
+
+<br/>
+
+<div>
+  <% @movies.each do |movie| %>
+    <h4>
+      <%=link_to movie.title, movie_path(movie) %>
+    </h4>
+  <% end %>
+</div>
+
+
+
+
